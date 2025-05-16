@@ -1,7 +1,7 @@
 package main
 
-import ("fmt"                                           "os"
-        "git@github.com:Gromp-13/IronCurtainBot"        tu "git@github.com:Gromp-13/IronCurtainBot"                                             )
+import ("fmt";                                         "os";
+        "git@github.com:Gromp-13/IronCurtainBot.git";        tu "git@github.com:Gromp-13/IronCurtainBot.git"                                             )
 
 func main() {                                   
         botToken := "7819906359:AAEc5FhI7MwwTA4TTWRmjaxFehdcvGUlskQ"
