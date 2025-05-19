@@ -1,3 +1,8 @@
 module github.com/Gromp-13/IronCurtainBot
 
 go 1.24.2
+
+require (
+	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible // indirect
+	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
+)

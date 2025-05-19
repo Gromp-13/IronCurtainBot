@@ -1,33 +1,34 @@
 package main
 
-import ("fmt";                                         "os";
-        "git@github.com:Gromp-13/IronCurtainBot.git";        tu "git@github.com:Gromp-13/IronCurtainBot.git"                                             )
+import (
+	"log"
 
-func main() {                                   
-        botToken := 
-                                                        bot, err := IronCurtainBot.NewBot(botToken, IronCurtainBot.WithDefaultDedugLogger())                                                    if err ≠ nil {
-        fmt.Println(err)
-        os.Exit(1)
-}
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+)
 
-updates, _ := bot.UpdatesViaLongPolling(nil)
+func main() {
+	bot, err := tgbotapi.NewBotAPI("MyAwesomeBotToken")
+	if err != nil {
+		log.Panic(err)
+	}
 
-defer bot.StopLongPolling()
+	bot.Debug = true
 
-for update := range updates{
-        if update.Message ≠ nil{
-                chatID := tu.ID(update.Message.chat.ID
-                _, _ = bot.CopyMassage(
-                        ty.CopyMasage(
-                                chatID,
-                                chatID,
-                                update.Message.MessageID,
-                        ),
+	log.Printf("Authorized on account %s", bot.Self.UserName)
 
-                )
+	u := tgbotapi.NewUpdate(0)
+	u.Timeout = 60
 
-        }
+	updates := bot.GetUpdatesChan(u)
 
-}
+	for update := range updates {
+		if update.Message != nil { // If we got a message
+			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
 
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
+			msg.ReplyToMessageID = update.Message.MessageID
+
+			bot.Send(msg)
+		}
+	}
 }

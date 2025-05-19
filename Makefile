@@ -1,6 +1,9 @@
 .PHONY:
-.SILENT:
+
 
 
 build:
-	go build -o ./.bin/bot cmd/bot/main.go
+	go build -o ./.bin/bot cmd/bot/main.g
+
+run: build
+	./.bin/bot
