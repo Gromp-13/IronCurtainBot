@@ -4,7 +4,7 @@ import ("fmt";                                         "os";
         "git@github.com:Gromp-13/IronCurtainBot.git";        tu "git@github.com:Gromp-13/IronCurtainBot.git"                                             )
 
 func main() {                                   
-        botToken := "7819906359:AAEc5FhI7MwwTA4TTWRmjaxFehdcvGUlskQ"
+        botToken := 
                                                         bot, err := IronCurtainBot.NewBot(botToken, IronCurtainBot.WithDefaultDedugLogger())                                                    if err ≠ nil {
         fmt.Println(err)
         os.Exit(1)
